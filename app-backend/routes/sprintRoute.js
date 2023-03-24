@@ -37,7 +37,7 @@ sprintRouter.post("/", async (req, res) => {
 sprintRouter.post("/addsprint", async (req, res) => {
     const sprint = req.body
     try {
-        const S = await SprintModel.find({sprint:sprint.sprint})
+        const S = await SprintModel.find({ sprint: sprint.sprint })
         console.log(S)
         if (S.length > 0) {
             res.send("Already existing Sprint")
@@ -123,7 +123,7 @@ sprintRouter.patch("/update/:id", async (req, res) => {
     const { id } = req.params
     const payload = req.body
     try {
-        await SprintModel.findByIdAndUpdate({ "_id": id }, payload)
+        await TaskModel.findByIdAndUpdate({ "_id": id }, payload)
         res.send("task updated")
     } catch (error) {
         res.send("unable to update task", error)
@@ -133,11 +133,33 @@ sprintRouter.patch("/update/:id", async (req, res) => {
 sprintRouter.delete("/delete/:id", async (req, res) => {
     const { id } = req.params
     try {
-        await SprintModel.findByIdAndDelete({ "_id": id })
+        await TaskModel.findByIdAndDelete({ "_id": id })
         console.log(id)
         res.send("task deleted")
     } catch (error) {
         res.send("unable to delete task", error)
+    }
+})
+
+sprintRouter.delete("/deleteSprint/:id", async (req, res) => {
+    const { id } = req.params
+    try {
+        await SprintModel.findByIdAndDelete({ "_id": id })
+        console.log(id)
+        res.send("sprint deleted")
+    } catch (error) {
+        res.send("unable to delete sprint", error)
+    }
+})
+
+sprintRouter.delete("/deleteUser/:id", async (req, res) => {
+    const { id } = req.params
+    try {
+        await UserModel.findByIdAndDelete({ "_id": id })
+        console.log(id)
+        res.send("user deleted")
+    } catch (error) {
+        res.send("unable to delete user", error)
     }
 })
 

@@ -1,97 +1,110 @@
-#sectionA{
-    background-image: linear-gradient(to right,#77e4f0,#c3e5ea);
-    display: flex;
-    justify-content: space-between;
+
+#sectionA {
+  background-image: linear-gradient(to right, #77e4f0, #c3e5ea);
+
+  display: flex;
+  justify-content: space-between;
 
 }
-#sectionA img{
+
+#sectionA img {
   justify-content: space-evenly;
 }
-#sectionA h2{
-    padding-right: 80px;
-    color: #522bd5;
-}
-#sectionB{
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: 1fr 5fr 1fr;
-   gap: 50px;
-} 
-#sectionB1{
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    background-color: #c8bded;
-    margin: 5px;
-    border-radius: 5px;
-  padding: 0px;
-}
-#sectionB2{
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
-    background-color: rgb(183, 244, 244);
-    margin: 15px;
-    border-radius: 5px;
-  padding: 0px;
-  }
-  #sectionB3{
-    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
-    background-color: #cfe7f6;
-    margin: 5px;
-    border-radius: 5px;
-  padding: 0px;
-  }
 
-#sectionB h2{
-    color: #522bd5;
-    background-color:linear-gradient(to right,#77e4f0,#c3e5ea); 
-  }
-  p{
-    text-align: left;
-    padding-left: 50px;
-  }
-  #main{
-    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
- background-color: aliceblue;
-    padding: 15px;
-    border-radius: 5px;
+#sectionA h2 {
+  padding-right: 80px;
+  color: #522bd5;
+}
+
+#sectionB {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 5fr 1.2fr;
+  gap: 30px;
+}
+
+#sectionB1 {
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  background-color: #c8bded;
+  margin: 5px;
+  border-radius: 5px;
+  padding: 0px;
+}
+
+#sectionB2 {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+  background-color: rgb(183, 244, 244);
+  margin: 15px;
+  border-radius: 5px;
+  padding: 0px;
+}
+
+#sectionB3 {
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+  background-color: #cfe7f6;
+  margin: 5px;
+  border-radius: 5px;
+  padding-bottom: 50px;
+}
+
+#sectionB h2 {
+  color: #522bd5;
+  background-color: linear-gradient(to right, #77e4f0, #c3e5ea);
+}
+
+p {
+  text-align: left;
+  padding-left: 50px;
+}
+
+#main {
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+  background-color: aliceblue;
+  padding: 15px;
+  border-radius: 5px;
   margin: 15px;
   display: grid;
   grid-template-rows: auto;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 25px;
-  }
+}
 
-  #input_new_sprint{
-    font-size: 15px;
-    padding: 15px;
-    border-radius: 15px;
-    border:none;
-    margin-top: 0px;
-    margin-bottom: 0px
-  }
+#input_new_sprint {
+  font-size: 15px;
+  padding: 15px;
+  border-radius: 15px;
+  border: none;
+  margin-top: 0px;
+  margin-bottom: 0px
+}
 
-  #input_sprint{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 15px;
-    padding: 15px;
-    border-radius: 15px;
-    border: none;
-    background-color:  #a9edf5;
-    display: inline;
-  }
-  #new_sprint{
-    display: flex;
-    padding: 5px;
-    gap:2px
-  }
-  #remove{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 15px;
-    padding: 15px 45px;
-    border-radius: 15px;
-    border: none;
-    background-color:  #a9edf5;
-    display: inline;
-  }
-#addbtn{
+#input_sprint {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 15px;
+  padding: 15px;
+  border-radius: 15px;
+  border: none;
+  background-color: #a9edf5;
+  display: inline;
+}
+
+#new_sprint {
+  display: flex;
+  padding: 5px;
+  gap: 2px
+}
+
+#remove {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 15px;
+  padding: 15px 35px;
+  border-radius: 15px;
+  border: none;
+  background-color: #a9edf5;
+  display: inline;
+}
+
+#addbtn {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 20px;
   padding: 10px 25px;
@@ -99,14 +112,25 @@
   margin-top: 15px;
   margin-bottom: 50px;
   border: none;
-  background-color:  #b7a7ed;
+  background-color: #b7a7ed;
   display: inline;
 }
-#inputting{
+
+#inputting {
   font-size: 15px;
   padding: 5px 15px;
-  border:none;
+  border: none;
   border-radius: 5px;
   margin-right: 25px;
   margin-top: 15px;
+}
+
+#sprint_main {
+  display: flex;
+  justify-content: space-around;
+}
+
+#user_main {
+  display: flex;
+  justify-content: space-around;
 }
