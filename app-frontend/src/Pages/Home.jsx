@@ -166,13 +166,13 @@ const Home = () => {
                             <p>TASK : {el.task}</p>
                             <p>ASSIGNEE : {el.assignee}</p>
                             <p>TASK TAG : {el.tag}</p>
-                            <p>STATUS : {el.status}</p>
+                            <p style={{color:"black"}}>STATUS : <span style={{ color: el.status === "Pending" ? "red" : "green" }}>{el.status}</span> </p>
                             <p>USER : {el.user}</p>
                             <p></p>
                             <button id='remove' onClick={() => toggle(el._id, el.status)}>Toggle Task Status</button>
                             <div id='new_sprint'>
                                 <input id='input_new_sprint' type='text' placeholder='Enter New Assignee' value={new_assign} onChange={(e) => setNewAssign(e.target.value)}></input>
-                                <button id='remove' onClick={() => new_assignee(el._id)}>Change</button>
+                                <button id='update' onClick={() => new_assignee(el._id)}>Change</button>
                             </div>
 
                             <button id='remove' onClick={() => remove(el._id)}>Remove Task</button>

@@ -66,13 +66,13 @@ p {
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
+  gap: 5px;
 }
 
 #input_new_sprint {
   font-size: 15px;
   padding: 15px;
-  border-radius: 15px;
+  border-radius: 15px 0px 0px 15px;
   border: none;
   margin-top: 0px;
   margin-bottom: 0px
@@ -82,7 +82,7 @@ p {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 15px;
   padding: 15px;
-  border-radius: 15px;
+  border-radius: 0px 15px 15px 0px;
   border: none;
   background-color: #a9edf5;
   display: inline;
@@ -97,8 +97,17 @@ p {
 #remove {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 15px;
-  padding: 15px 35px;
+  padding: 12px 15px;
   border-radius: 15px;
+  border: none;
+  background-color: #a9edf5;
+  display: inline;
+}
+#update {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 15px;
+  padding: 12px 15px;
+  border-radius: 0px 15px 15px 0px;
   border: none;
   background-color: #a9edf5;
   display: inline;
