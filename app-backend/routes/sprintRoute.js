@@ -34,9 +34,34 @@ sprintRouter.post("/", async (req, res) => {
     }
 })
 
+sprintRouter.post("/addsprint", async (req, res) => {
+    const sprint = req.body
+    try {
+        const S = await SprintModel.find({sprint:sprint.sprint})
+        console.log(S)
+        if (S.length > 0) {
+            res.send("Already existing Sprint")
+        } else {
+            const sp = new SprintModel(sprint);
+            await sp.save()
+            res.send("added new Sprint")
+        }
+    }
+    catch (err) {
+        console.log(err)
+        res.send("Unable to add sprint", err)
+    }
+})
+
 sprintRouter.post("/add", async (req, res) => {
     const taskdata = req.body
     try {
+        const a = await UserModel.find({ user: taskdata.user })
+        console.log(a)
+        if (a.length == 0) {
+            const us = new UserModel({ user: taskdata.user });
+            await us.save()
+        }
         const data = new TaskModel(taskdata);
         await data.save()
         res.send("Task added Successfully")
@@ -47,8 +72,19 @@ sprintRouter.post("/add", async (req, res) => {
     }
 })
 
-sprintRouter.get("/sprint", async (req, res) => {
-    const sprint = req.query.sprint;
+sprintRouter.get("/allsprint", async (req, res) => {
+    try {
+        const sprints = await SprintModel.find();
+        res.send(sprints)
+    }
+    catch (err) {
+        console.log(err)
+        res.send("Error in getting data please try again later!")
+    }
+})
+
+sprintRouter.get("/getsprint/:sprint", async (req, res) => {
+    const sprint = req.params.sprint;
     try {
         const sprints = await TaskModel.find({ sprint });
         res.send(sprints)
@@ -59,8 +95,19 @@ sprintRouter.get("/sprint", async (req, res) => {
     }
 })
 
-sprintRouter.get("/user", async (req, res) => {
-    const user = req.query.user;
+sprintRouter.get("/alluser", async (req, res) => {
+    try {
+        const users = await UserModel.find();
+        res.send(users)
+    }
+    catch (err) {
+        console.log(err)
+        res.send("Error in getting data please try again later!")
+    }
+})
+
+sprintRouter.get("/getuser/:user", async (req, res) => {
+    const user = req.params.user;
     try {
         const users = await TaskModel.find({ user });
         res.send(users)
