@@ -1,7 +1,17 @@
+#mainTop{
+  background-image: url(https://wallpapercave.com/wp/RAIPZfH.jpg);
+  width: 100%;
+  height: 100vh;
+   background-repeat: repeat-y;
+}
 
 #sectionA {
-  background-image: linear-gradient(to right, #77e4f0, #c3e5ea);
-
+  background: rgba(25, 238, 227, 0);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.9px);
+  -webkit-backdrop-filter: blur(9.9px);
+  border: 1px solid rgba(25, 238, 227, 0.27);
   display: flex;
   justify-content: space-between;
 
@@ -24,27 +34,33 @@
 }
 
 #sectionB1 {
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  background-color: #c8bded;
-  margin: 5px;
-  border-radius: 5px;
-  padding: 0px;
+  margin: 15px 0px 15px 15px;
+  background: rgba(255, 255, 255, 0);
+  border-radius: 16px;
+  box-shadow: 0 4px 90px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border: 1px solid rgba(255, 255, 255, 0.27);
 }
 
 #sectionB2 {
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
-  background-color: rgb(183, 244, 244);
-  margin: 15px;
-  border-radius: 5px;
-  padding: 0px;
+  margin: 15px 0px 15px 0px;
+  background: rgba(255, 255, 255, 0.42);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.27);
 }
 
 #sectionB3 {
-  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
-  background-color: #cfe7f6;
-  margin: 5px;
-  border-radius: 5px;
-  padding-bottom: 50px;
+  margin: 15px 15px 15px 0px;
+  background: rgba(255, 255, 255, 0);
+  border-radius: 16px;
+  box-shadow: 0 4px 90px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border: 1px solid rgba(255, 255, 255, 0.27);
 }
 
 #sectionB h2 {
@@ -103,6 +119,7 @@ p {
   background-color: #a9edf5;
   display: inline;
 }
+
 #update {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 15px;

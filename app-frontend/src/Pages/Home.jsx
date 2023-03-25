@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import TaskPlanner from '../Images/TaskPlanner.png'
 import '../Pages/Home.css'
+import background from '../Images/background.jpg'
 
 const getSprint = () => {
     return fetch('http://localhost:8080/allsprint')
@@ -30,6 +31,7 @@ const Home = () => {
     const [particularSprint, setParticularSprint] = useState([])
     const [x, setX] = useState("")
     const [y, setY] = useState("")
+    const [z, setZ] = useState("")
     const [new_assign, setNewAssign] = useState("")
 
     useEffect(() => {
@@ -39,14 +41,16 @@ const Home = () => {
 
     const handleTask = (sprint) => {
         (localStorage.setItem("sprint", JSON.stringify(sprint)));
-        setX(`${sprint} sprint`)
+        setX(`${sprint} sprint's Tasks`)
         setY("sprint")
+        setZ(sprint)
         getParticularSprint(sprint).then((res) => setParticularSprint(res))
     }
 
     const handleUser = (user) => {
-        setX(`${user} user`)
+        setX(`${user} user's Tasks`)
         setY("user")
+        setZ(user)
 
         getParticularUser(user).then((res) => setParticularSprint(res))
     }
@@ -80,6 +84,7 @@ const Home = () => {
                 "Content-Type": "application/json"
             }
         })
+        window.location.reload()
     }
 
     const remove = (id) => {
@@ -135,12 +140,12 @@ const Home = () => {
     }
 
     let name = JSON.parse(localStorage.getItem("assignee")) || "";
-    console.log(sprint, user, particularSprint, x, y, typeof y)
+    console.log(sprint, user, particularSprint, x, y, z, typeof z)
 
     return (
         <div id='mainTop'>
             <div id='sectionA'>
-                <img src={TaskPlanner} alt="logo_image" width={80} />
+                <img src={TaskPlanner} alt="logo_image" width={250} />
                 <h2>Welcome {name}</h2>
             </div>
 
@@ -150,32 +155,32 @@ const Home = () => {
                     {sprint.map((el) => (
                         <div key={el._id} id="sprint_main">
                             <span style={{ marginRight: '50px', fontSize: '20px' }} onClick={() => handleTask(el.sprint)}>{el.sprint}</span>&nbsp;
-                            <span style={{ color: 'red' }} onClick={() => delSprint(el._id)}>Delete</span>
+                            <span style={{ color: 'red' }} onClick={() => { delSprint(el._id); handleTask("code") }}>Delete</span>
                         </div>
                     ))}
                     <div id='new_sprint'>
                         <input id='input_new_sprint' type="text" placeholder='Add new Sprint' value={newSprint} onChange={(e) => setNewSprint(e.target.value)} />
-                        <button id='input_sprint' onClick={addnew}>+</button></div>
+                        <button id='input_sprint' onClick={() => { addnew(); handleTask("code"); }}>+</button></div>
 
                 </div>
 
                 <div id='sectionB2'>
-                    <h1>{x}'s tasks</h1>
+                    <h1>{x===""?"Select any Sprint/user to see detials":x}</h1>
                     {particularSprint ? particularSprint.map((el) => (
                         <div key={el._id} id="main">
                             <p>TASK : {el.task}</p>
                             <p>ASSIGNEE : {el.assignee}</p>
                             <p>TASK TAG : {el.tag}</p>
-                            <p style={{color:"black"}}>STATUS : <span style={{ color: el.status === "Pending" ? "red" : "green" }}>{el.status}</span> </p>
+                            <p style={{ color: "black" }}>STATUS : <span style={{ color: el.status === "Pending" ? "red" : "green" }}>{el.status}</span> </p>
                             <p>USER : {el.user}</p>
                             <p></p>
-                            <button id='remove' onClick={() => toggle(el._id, el.status)}>Toggle Task Status</button>
+                            <button id='remove' onClick={() => { toggle(el._id, el.status); handleTask(z); }}>Toggle Task Status</button>
                             <div id='new_sprint'>
                                 <input id='input_new_sprint' type='text' placeholder='Enter New Assignee' value={new_assign} onChange={(e) => setNewAssign(e.target.value)}></input>
-                                <button id='update' onClick={() => new_assignee(el._id)}>Change</button>
+                                <button id='update' onClick={() => { new_assignee(el._id); handleTask("code"); }}>Change</button>
                             </div>
 
-                            <button id='remove' onClick={() => remove(el._id)}>Remove Task</button>
+                            <button id='remove' onClick={() => { remove(el._id); handleTask(z); }}>Remove Task</button>
                         </div>
                     )) : <h3>Please Select any Sprint or User to see details</h3>}
                     <br />
