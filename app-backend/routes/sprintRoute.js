@@ -5,33 +5,8 @@ const { TaskModel } = require('../models/taskModel')
 const { SprintModel } = require('../models/sprintModel')
 
 
-sprintRouter.post("/", async (req, res) => {
-    const taskdata = req.body
-    try {
-        const sprint = await SprintModel.find({ sprint: taskdata.sprint })
-        const a = await UserModel.find({ user: taskdata.user })
-        console.log(a)
-        if (a.length == 0) {
-            const us = new UserModel({ user: taskdata.user });
-            await us.save()
-        }
-
-        if (sprint.length > 0) {
-            const data = new TaskModel(taskdata);
-            await data.save()
-            res.send("Added to the Already existing Sprint")
-        } else {
-            const data = new TaskModel(taskdata);
-            await data.save()
-            const sp = new SprintModel({ sprint: taskdata.sprint });
-            await sp.save()
-            res.send("Created new Sprint and task added Successfully")
-        }
-    }
-    catch (err) {
-        console.log(err)
-        res.send("Unable to add task", err)
-    }
+sprintRouter.get("/", async (req, res) => {
+    res.send("hello user")
 })
 
 sprintRouter.post("/addsprint", async (req, res) => {

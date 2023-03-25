@@ -1,22 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import TaskPlanner from '../Images/TaskPlanner.png'
 import '../Pages/Home.css'
-import background from '../Images/background.jpg'
 
 const getSprint = () => {
-    return fetch('http://localhost:8080/allsprint')
+    return fetch('https://odd-puce-trout-gear.cyclic.app/allsprint')
         .then((res) => res.json())
 }
 const getUser = () => {
-    return fetch('http://localhost:8080/alluser')
+    return fetch('https://odd-puce-trout-gear.cyclic.app/alluser')
         .then((res) => res.json())
 }
 const getParticularSprint = (sprint) => {
-    return fetch(`http://localhost:8080/getsprint/${sprint}`)
+    return fetch(`https://odd-puce-trout-gear.cyclic.app/getsprint/${sprint}`)
         .then((res) => res.json())
 }
 const getParticularUser = (user) => {
-    return fetch(`http://localhost:8080/getuser/${user}`)
+    return fetch(`https://odd-puce-trout-gear.cyclic.app/getuser/${user}`)
         .then((res) => res.json())
 }
 
@@ -56,7 +55,7 @@ const Home = () => {
     }
 
     const addnew = () => {
-        fetch('http://localhost:8080/addsprint', {
+        fetch('https://odd-puce-trout-gear.cyclic.app/addsprint', {
             method: "POST",
             body: JSON.stringify({ sprint: newSprint }),
             headers: {
@@ -77,7 +76,7 @@ const Home = () => {
             status: "Pending"
         }
         console.log(obj)
-        fetch('http://localhost:8080/add', {
+        fetch('https://odd-puce-trout-gear.cyclic.app/add', {
             method: "POST",
             body: JSON.stringify(obj),
             headers: {
@@ -88,7 +87,7 @@ const Home = () => {
     }
 
     const remove = (id) => {
-        fetch(`http://localhost:8080/delete/${id}`, {
+        fetch(`https://odd-puce-trout-gear.cyclic.app/delete/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
@@ -98,7 +97,7 @@ const Home = () => {
     }
 
     const toggle = (id, status) => {
-        fetch(`http://localhost:8080/update/${id}`, {
+        fetch(`https://odd-puce-trout-gear.cyclic.app/update/${id}`, {
             method: "PATCH",
             body: JSON.stringify({ status: status == "Pending" ? "Completed" : "Pending" }),
             headers: {
@@ -109,7 +108,7 @@ const Home = () => {
     }
 
     const new_assignee = (id) => {
-        fetch(`http://localhost:8080/update/${id}`, {
+        fetch(`https://odd-puce-trout-gear.cyclic.app/update/${id}`, {
             method: "PATCH",
             body: JSON.stringify({ assignee: new_assign }),
             headers: {
@@ -120,7 +119,7 @@ const Home = () => {
     }
 
     const delSprint = (id) => {
-        fetch(`http://localhost:8080/deleteSprint/${id}`, {
+        fetch(`https://odd-puce-trout-gear.cyclic.app/deleteSprint/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
@@ -130,7 +129,7 @@ const Home = () => {
     }
 
     const delUser = (id) => {
-        fetch(`http://localhost:8080/deleteUser/${id}`, {
+        fetch(`https://odd-puce-trout-gear.cyclic.app/deleteUser/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
@@ -165,7 +164,7 @@ const Home = () => {
                 </div>
 
                 <div id='sectionB2'>
-                    <h1>{x===""?"Select any Sprint/user to see detials":x}</h1>
+                    <h1>{x === "" ? "Select any Sprint/user to see detials" : x}</h1>
                     {particularSprint ? particularSprint.map((el) => (
                         <div key={el._id} id="main">
                             <p>TASK : {el.task}</p>
